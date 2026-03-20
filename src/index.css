@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-code: "Fira Code", monospace;
+  --color-primary: #00b4d8;
+  --color-primary-dark: #0096c7;
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scrollDot { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(14px);opacity:0} }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #0d0d0d;
+    color: #f3f4f6;
+    margin: 0;
+  }
+
+  body.light {
+    background-color: #ffffff;
+    color: #1f2937;
+  }
+
+  ::selection { background-color: rgba(0,180,216,0.25); color: #00b4d8; }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background-color: rgba(0,180,216,0.4); border-radius: 9999px; }
+}
+
+@layer components {
+  .font-code { font-family: var(--font-code); }
+
+  .skill-tag {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid rgba(0,180,216,0.3);
+    color: #00b4d8;
+    background-color: rgba(0,180,216,0.06);
+    display: inline-block;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: var(--font-code);
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    background-color: #00b4d8;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+  .btn-primary:hover {
+    background-color: #0096c7;
+    box-shadow: 0 8px 30px rgba(0,180,216,0.35);
+    transform: translateY(-1px);
+  }
+
+  .section-card {
+    border-radius: 0.75rem;
+    border: 1px solid;
+    transition: all 0.3s;
+  }
+}
